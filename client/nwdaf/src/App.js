@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import Axios from 'axios';
-import Form from './components/form/Form';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginScreen from './components/login/LoginScreen';
+import DashboardScreen from './components/dashboard/DashboardScreen';
 
-const App = () => {
-//   const [data, setData] = useState("")
-//   const getData= async() => {
-//     const res = await Axios.get("http://localhost:5000/getData");
-//     setData(res.data)
-//   }
-//  useEffect(()=>{
-//   getData()
-//  },[]);
- 
+function App() {
   return (
-    <div>
-      <Form/>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/dashboard" element={<DashboardScreen />} />
+        <Route exact path="/" element={<LoginScreen />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
