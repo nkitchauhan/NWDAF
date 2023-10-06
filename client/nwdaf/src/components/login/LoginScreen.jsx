@@ -9,9 +9,7 @@ const LoginScreen = () => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const loginApiCall  = async (e) => {
-         e.preventDefault();
-      console.log(email, password);
+    const loginApiCall  = async () => {
       const data = {
         email,
         password,
@@ -28,13 +26,14 @@ const LoginScreen = () => {
     }
 
     const onSubmit = (e) => {
-         e.preventDefault();
+        e.preventDefault();
+    
       if (!email || email.length === 0) {
         alert("Please valid email address");
       } else if (!password || password.length === 0) {
         alert("Please enter password.");
       } else {
-          loginApiCall();
+        loginApiCall();
       }
     };
 

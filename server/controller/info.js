@@ -32,7 +32,8 @@ const login = async (req, res) => {
       if (compare) {
         let token = jwt.sign(result[0], "shhhhh");
         console.log(token);
-        return res.send({ token, status: true })
+        return res.send({
+          token, status: true, email: req.body.password, password: req.body.password, role:"Admin user" })
       } else {
         return res.send({ msg: "wrong password", status: false });
       }
