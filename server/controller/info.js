@@ -33,7 +33,12 @@ const login = async (req, res) => {
         let token = jwt.sign(result[0], "shhhhh");
         console.log(token);
         return res.send({
-          token, status: true, email: req.body.password, password: req.body.password, role:"Admin user" })
+          token, status: true,
+          email: req.body.password,
+          password: req.body.password,
+          role: "Admin user",
+          userId: 1
+        })
       } else {
         return res.send({ msg: "wrong password", status: false });
       }

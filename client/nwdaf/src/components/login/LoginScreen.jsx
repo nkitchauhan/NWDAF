@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './login.css'
 import { useNavigate } from "react-router-dom";
 import { postCaller } from '../../service/api';
+import { setLoggedInToken, setLoggedInUserData } from '../../utils/Helper';
 
 const LoginScreen = () => {
 
@@ -17,8 +18,8 @@ const LoginScreen = () => {
       const res = await postCaller("http://localhost:8081/login", data);
       console.log(res)
       if (res.status === true) {
-        alert("login Successfully");
-        localStorage.setItem("token", res.token);
+          setLoggedInToken(res.token);
+          setLoggedInUserData(res)
         navigate("/dashboard");
       } else {
         alert(res.msg);

@@ -1,3 +1,5 @@
+import { getLoggedInToken } from "../utils/Helper";
+
 export const getCaller = async (url) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${url}`, {
@@ -21,7 +23,7 @@ export const postCaller = async (url, data) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${getLoggedInToken()}`,
       },
       body: JSON.stringify(data),
     })
@@ -39,7 +41,7 @@ export const updateCaller = async (url, data) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${getLoggedInToken()})}`,
       },
       body: JSON.stringify(data),
     })
@@ -51,20 +53,20 @@ export const updateCaller = async (url, data) => {
   }
 };
 
-export const deleteCaller = async (url, data) => {
-  try {
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${url}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .catch((error) => console.log(error));
-    return response;
-  } catch (err) {
-    console.log(err);
-  }
-};
+// export const deleteCaller = async (url, data) => {
+//   try {
+//     const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${url}`, {
+//       method: "DELETE",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: `Bearer ${localStorage.getItem("token")}`,
+//       },
+//       body: JSON.stringify(data),
+//     })
+//       .then((response) => response.json())
+//       .catch((error) => console.log(error));
+//     return response;
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
