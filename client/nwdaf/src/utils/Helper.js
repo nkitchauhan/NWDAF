@@ -20,7 +20,6 @@ export const loggedInUserId = () => {
   return userId;
 };
 
-
 export const loggedInRole = () => {
   const user = getLoggedInUserData();
   let role = null;

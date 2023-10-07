@@ -30,7 +30,7 @@ const login = async (req, res) => {
       let compare = await bcrypt.compare(req.body.password, result[0].password);
       console.log(compare);
       if (compare) {
-        let token = jwt.sign(result[0], "shhhhh");
+        let token = jwt.sign(result[0], "token");
         console.log(token);
         return res.send({
           token, status: true,

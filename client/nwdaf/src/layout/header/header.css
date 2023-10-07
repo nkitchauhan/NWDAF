@@ -1,0 +1,37 @@
+.header-section {
+    background-color: blue;
+    /* height: 50vh; */
+    padding: 1rem;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
+.container-head {
+    display: flex;
+}
+.container-head h3{
+    color: white;
+  display: flex;
+}
+.container-head-3 {
+    display: flex;
+    gap: 0.5rem;
+    color: white;
+    justify-content: center;
+}
+.admin-section {
+    display: flex;
+    gap: 2rem;
+
+
+}
+.icon {
+    margin-top: 3px;
+}
+.ul-login {
+    display: flex;
+    gap: 0.5rem;
+ 
+    color: white;
+}

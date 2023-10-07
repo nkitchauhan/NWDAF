@@ -1,31 +1,40 @@
 import React, { useState } from 'react'
 import './login.css'
-import { useNavigate } from "react-router-dom";
 import { postCaller } from '../../service/api';
 import { setLoggedInToken, setLoggedInUserData } from '../../utils/Helper';
+import { useNavigate } from "react-router-dom";
 
 const LoginScreen = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const navigate = useNavigate();
-
+    const navigate = useNavigate()
+    /**
+     * Login api calling
+     */
     const loginApiCall  = async () => {
       const data = {
         email,
         password,
-      };
-      const res = await postCaller("/login", data);
-      console.log(res)
-      if (res.status === true) {
-          setLoggedInToken(res.token);
-          setLoggedInUserData(res)
-        navigate("/dashboard");
-      } else {
-        alert(res.msg);
-      }
+        };
+         try {
+             const response = await postCaller("/login", data);
+             if (response.status === true) {
+               setLoggedInToken(response.token);
+               setLoggedInUserData(response);
+               navigate("/dashboard");
+             } else {
+               alert(response.msg);
+             }
+         } catch (error) {
+           alert(error.message);
+         }
+      
     }
 
+    /**
+     * validation checking on onSubmit
+     */
     const onSubmit = (e) => {
         e.preventDefault();
     
@@ -37,7 +46,9 @@ const LoginScreen = () => {
         loginApiCall();
       }
     };
-
+/**
+ * Ui rendering
+ */
     return (
       <>
         <section>

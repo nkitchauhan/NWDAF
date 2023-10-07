@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import Layout from "../../layout/Layout";
+import { useEffect } from "react";
 
 
 const DashboardScreen = () => {
 
+    useEffect(() => {
+        
+    })
+
    
   return (
       <>
-          
-          <h1> Welcome to dasboard </h1>
-
-     
+          <Layout/>
     </>
   );
 };
