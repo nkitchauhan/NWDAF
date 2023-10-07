@@ -15,7 +15,7 @@ const LoginScreen = () => {
         email,
         password,
       };
-      const res = await postCaller("http://localhost:8081/login", data);
+      const res = await postCaller("/login", data);
       console.log(res)
       if (res.status === true) {
           setLoggedInToken(res.token);
